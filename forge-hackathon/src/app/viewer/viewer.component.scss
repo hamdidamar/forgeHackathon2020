@@ -1,0 +1,44 @@
+.viewercontent{
+    display: flex;
+    height: 100%;
+}
+#sidebar {
+    width: 20%;
+    background-color:#343a40;
+    border-radius: 5px;
+    margin: 2px 2px 2px 0; //top,right,bottom,left
+    height: 100%;
+}
+
+
+.content{
+    width: 60%;
+}
+
+.properties {
+    width: 20%;
+    background-color:#343a40;
+    border-radius: 5px;
+    color: rgba(255,255,255,.5);
+    height: 100%;
+    margin: 2px 0 2px 2px; //top,right,bottom,left
+}
+
+.viewer {
+    width: 100%;
+    background-color: #343a40;
+    border-radius: 5px;
+    height: 70%;
+    margin: 2px 2px 0 0; //top,right,bottom,left
+}
+
+
+.settings {
+    width: 100%;
+    background-color:#343a40;
+    border-radius: 5px;
+    color: rgba(255,255,255,.5);
+    height: 30%;
+    margin: 2px 0 2px 0; //top,right,bottom,left
+}
+

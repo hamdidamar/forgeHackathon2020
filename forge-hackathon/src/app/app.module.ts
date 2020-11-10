@@ -6,6 +6,11 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ViewerComponent } from './viewer/viewer.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -16,7 +21,8 @@ import { ViewerComponent } from './viewer/viewer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

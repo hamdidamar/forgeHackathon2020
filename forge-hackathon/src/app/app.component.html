@@ -1,1 +1,17 @@
-<h1>Forge Hackathon 2020</h1>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="https://codeo.com.tr/" target="_blank">Codeo</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link" routerLink="login">Login </a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="projects">Projects</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="viewer/:id">Viewer</a></li>
+    </ul>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+
