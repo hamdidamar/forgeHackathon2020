@@ -1,23 +1,106 @@
 <div class="viewercontent">
-    <nav id="sidebar">
+    <nav id="sidebar" *ngIf="sidebar">
         <div class="sidebar-header">
             <h3 style="text-align: center;">Sidebar</h3>
         </div>
+
+        <mat-list class="listSidebar">
+            <mat-list-item *ngFor="let item of mainItems" style="display: flex;">
+                <button (click)="itemLoad(item.name)" class="buttons listItemSidebar">{{item.name}}</button>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+        </mat-list>
+
+        <div style="display: flex;">
+            <button type="button" class="btn btn-secondary"
+                style="margin-left: 10px; margin-top: 10px; flex-basis: 45%;">Upload Item</button>
+            <button type="button" class="btn btn-danger"
+                style="margin-left: 10px; margin-top: 10px; flex-basis: 45%;">Delete Item</button>
+        </div>
+
+
     </nav>
+    <button (click)="sidebarFunction()" class="buttons">{{sidebarbuttontext}}</button>
 
     <!-- Page Content -->
     <div class="content">
         <div class="viewer">
             <h3 class="viewer" style="text-align: center;">Viewer</h3>
+            <p>{{itemName}}</p>
+            <p>{{itemColor}}</p>
+            <p>{{scenePath}}</p>
+
         </div>
-        <div id="settings" class="settings">
-            <h3 class="settings" style="text-align: center;">Settings</h3>
+
+        <div id="settings" class="settings" *ngIf="colorSettings">
+            <h3 class="settings" style="text-align: center;">Color Settings</h3>
+            <mat-label>Enter your color :</mat-label>
+            <input [(colorPicker)]="itemColor" [style.background]="itemColor" [itemColor]="itemColor" value="{{itemColor}}" />
+            <br><br>
+            <mat-label>Current Select :</mat-label>
+            <input type="text" value="{{itemColor}}">
+        </div>
+
+        <div id="settings" class="settings" *ngIf="scaleSettings">
+            <h3 class="settings" style="text-align: center;">Scale Settings</h3>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <mat-label>X :</mat-label>
+                        <input type="text" value="{{scaleX}}">
+                    </div>
+                    <div class="col-sm">
+                        <mat-label>Y :</mat-label>
+                        <input type="text" value="{{scaleY}}">
+                    </div>
+                    <div class="col-sm">
+                        <mat-label>Z :</mat-label>
+                        <input type="text" value="{{scaleZ}}">
+                    </div>
+                </div>
+            </div>
+            <br><br>
+
+
+        </div>
+
+        <div id="settings" class="settings" *ngIf="sceneSettings">
+            <h3 class="settings" style="text-align: center;">Scene Settings</h3>
+
+
+            <div class="imageGallery">
+                <div class="imageContent" *ngFor="let item of galleryItems">
+                    <img (click)="changeSceneFunction(item.imgSrc)" [src]="item.imgSrc" alt="image">
+                </div>
+            </div>
+
+            <button type="button" (click)="uploadSceneFunction()" style="margin-left: 12px; margin-top: 12px;"
+                class="btn btn-secondary">Upload Your Scene</button>
+
+            <button type="button" (click)="resetSceneFunction()" style="margin-left: 12px; margin-top: 12px;"
+                class="btn btn-secondary">Reset Scene</button>
+
+
         </div>
     </div>
 
 
 
-    <div id="properties" class="properties">
+    <button (click)="propertiesFunction()" class="buttons">{{propertiesbuttontext}}</button>
+    <div id="properties" class="properties" *ngIf="properties">
         <h3 style="text-align: center;">Properties</h3>
+
+        <div class="text-center">
+            <br><br>
+            <button type="button" (click)="colorSettingsFunction()" class="btn btn-secondary">Color</button>
+            <br><br>
+            <button type="button" (click)="scaleSettingsFunction()" class="btn btn-secondary">Scale</button>
+            <br><br>
+            <button type="button" (click)="sceneSettingsFunction()" class="btn btn-secondary">Scene</button>
+        </div>
+
+        <button type="button" (click)="saveFunction()" class="btn btn-success saveButton">Save</button>
     </div>
+
 </div>

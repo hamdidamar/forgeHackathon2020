@@ -9,6 +9,9 @@ import { ViewerComponent } from './viewer/viewer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
+import { ColorPickerModule } from 'ngx-color-picker';
+
+
 
 
 
@@ -22,7 +25,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    ColorPickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
