@@ -118,6 +118,7 @@ export class ViewerComponent implements OnInit {
     this.itemColor =itemColor;
   }
 
+  
    
 
 }

@@ -31,7 +31,7 @@
     border-radius: 5px;
     color: rgba(255,255,255,.5);
     
-    margin: 2px 2px 0 2px; //top,right,bottom,left
+    margin: 2px 2px 0 0px; //top,right,bottom,left
 }
 
 
@@ -41,7 +41,7 @@
     border-radius: 5px;
     color: rgba(255,255,255,.5);
     height: 30%;
-    margin: 2px 2px 4px 2px; //top,right,bottom,left
+    margin: 2px 2px 4px 0px; //top,right,bottom,left
 }
 
 .buttons{
@@ -57,16 +57,17 @@
 
 .imageGallery{
     display: flex;
-    margin-left: 12px;
 
 }
 
 .imageContent > img{
-    width: 90%;
+    width: 80%;
 }
 
 .imageContent{
-    flex-basis: 33%;;
+    flex-basis: 33%;
+    display: flex;
+    justify-content: center;
 }
 
 .listSidebar{
@@ -77,4 +78,38 @@
 
 .listItemSidebar{
     flex-basis: 90%;
+    margin-top: 5px;
+}
+
+.properties-buttons{
+    height: 90%;
+    display: flex;
+    align-content:space-between ;
+    justify-content:space-between ;
+    flex-direction: column;
+}
+
+.prop-btn{
+    width: 70%;
+}
+
+.slider-buttons{
+    height: 100%;
+    border: 1px solid transparent;
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+    border-radius: 0.25rem;
+    margin: 2px 0 2px 0;
+
+}
+
+.settings-buttons{
+    width: 100%;
+    display: flex;
+    align-content:space-between ;
+}
+
+.settings-buttons > button{
+    width: 48%;
 }
