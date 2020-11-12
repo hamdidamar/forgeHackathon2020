@@ -17,6 +17,10 @@ const routes: Routes = [
   {
     component: ViewerComponent,
     path: 'viewer/:id'
+  },
+  {
+    component: ProjectsComponent,
+    path: ''
   }
 ];
 

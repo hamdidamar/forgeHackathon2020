@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewerComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+    this.viewerHeight = this.IsSettingsOpen ? 70 : 100;
+  }
 
   ngOnInit(): void {
   }
@@ -27,6 +29,10 @@ export class ViewerComponent implements OnInit {
   itemName: string="";
   itemColor: string="";
 
+  IsSettingsOpen: boolean = false;
+
+  viewerHeight: number;
+
 
   sidebarFunction() {
     this.sidebar = !this.sidebar;
@@ -41,16 +47,22 @@ export class ViewerComponent implements OnInit {
     this.scaleSettings = false;
     this.sceneSettings = false;
     this.colorSettings = !this.colorSettings;
+    this.IsSettingsOpen = this.colorSettings ? true : false;
+    this.viewerHeight = this.IsSettingsOpen ? 70 : 100;
   }
   scaleSettingsFunction() {
     this.colorSettings = false;
     this.sceneSettings = false;
     this.scaleSettings = !this.scaleSettings;
+    this.IsSettingsOpen = this.scaleSettings ? true : false;
+    this.viewerHeight = this.IsSettingsOpen ? 70 : 100;
   }
   sceneSettingsFunction() {
     this.colorSettings = false;
     this.scaleSettings = false;
     this.sceneSettings = !this.sceneSettings;
+    this.IsSettingsOpen = this.sceneSettings ? true : false;
+    this.viewerHeight = this.IsSettingsOpen ? 70 : 100;
   }
 
   saveFunction() {
@@ -58,6 +70,8 @@ export class ViewerComponent implements OnInit {
     this.scaleSettings = false;
     this.sceneSettings = false;
     this.properties = false;
+    this.IsSettingsOpen =false;
+    this.viewerHeight = this.IsSettingsOpen ? 70 : 100;
 
   }
   propertiesFunction() {
@@ -103,6 +117,7 @@ export class ViewerComponent implements OnInit {
   changeColor(itemColor){
     this.itemColor =itemColor;
   }
-  
+
+   
 
 }

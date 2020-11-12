@@ -9,3 +9,12 @@ html{
     height: 100%;
     width: 100%;
 }
+
+.navbar-nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.mainPages,.loginPages{
+    display: inline-flex;
+}
