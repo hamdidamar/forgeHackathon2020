@@ -19,7 +19,7 @@ const routes: Routes = [
     path: 'viewer/:id'
   },
   {
-    component: ProjectsComponent,
+    component: LoginComponent,
     path: ''
   }
 ];
