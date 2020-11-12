@@ -1,5 +1,3 @@
-<h3 style="text-align: center;">Projects Page</h3>
-
 <div class="card-group">
     <div class="viewer">
         <img class="card-img-top" src="../../assets/img/scenes/scene (1).jpg" alt="Card image cap">
@@ -8,7 +6,7 @@
             <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
         </div>
         <div class="card-footer">
-            <button type="button" class="btn btn-info buttons">Open Item</button>
+            <button type="button" [routerLink]="'/viewer/:id'"  class="btn btn-info buttons">Open Item</button>
             <button type="button" class="btn btn-danger buttons">Delete Item</button>
         </div>
     </div>

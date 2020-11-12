@@ -16,9 +16,14 @@
                 style="margin-left: 10px; margin-top: 10px; flex-basis: 85%;">Upload Item</button>
         </div>
 
+        <div style="display: flex;">
+            <button type="button" class="btn btn-danger" [routerLink]="'/projects'"
+                style="margin-left: 10px; margin-top: 10px; flex-basis: 85%;">Save and Exit</button>
+        </div>
+
 
     </nav>
-    <button (click)="sidebarFunction()"  class="slider-buttons">{{sidebarbuttontext}}</button>
+    <button (click)="sidebarFunction()" class="slider-buttons">{{sidebarbuttontext}}</button>
 
     <!-- Page Content -->
     <div class="content">
@@ -32,12 +37,11 @@
 
         <div id="settings" class="settings" *ngIf="colorSettings">
             <h3 class="settings" style="text-align: center;">Color Settings</h3>
-            <mat-label>Enter your color :</mat-label>
-            <input [(colorPicker)]="itemColor" [style.background]="itemColor" [itemColor]="itemColor"
-                value="{{itemColor}}" />
-            <br><br>
-            <mat-label>Current Select :</mat-label>
-            <input type="text" value="{{itemColor}}">
+
+            <div class="selectColor">
+                <input [(colorPicker)]="itemColor" class="inputColor" [style.background]="itemColor"
+                    [itemColor]="itemColor" value="{{itemColor}}" />
+            </div>
         </div>
 
         <div id="settings" class="settings" *ngIf="scaleSettings">
@@ -46,17 +50,24 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm">
-                        <mat-label>X :</mat-label>
+                        <mat-label>Width : </mat-label>
                         <input type="text" value="{{scaleX}}">
                     </div>
                     <div class="col-sm">
-                        <mat-label>Y :</mat-label>
+                        <mat-label>Height : </mat-label>
                         <input type="text" value="{{scaleY}}">
                     </div>
                     <div class="col-sm">
-                        <mat-label>Z :</mat-label>
+                        <mat-label>Depth : </mat-label>
                         <input type="text" value="{{scaleZ}}">
                     </div>
+                </div>
+                <div class="settings-buttons">
+                    <button type="button" (click)="uploadSceneFunction()" style="margin-left: 12px; margin-top: 12px;"
+                        class="btn btn-secondary">Update Scale</button>
+
+                    <button type="button" (click)="resetSceneFunction()" style="margin-left: 12px; margin-top: 12px;"
+                        class="btn btn-secondary">Reset Scale</button>
                 </div>
             </div>
             <br><br>

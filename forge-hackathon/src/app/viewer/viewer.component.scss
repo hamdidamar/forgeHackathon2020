@@ -113,3 +113,16 @@
 .settings-buttons > button{
     width: 48%;
 }
+
+.selectColor{
+    display: flex;
+    width: 100%;
+    height: 60%;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputColor{
+    width: 40%;
+    height: 100%;
+}
