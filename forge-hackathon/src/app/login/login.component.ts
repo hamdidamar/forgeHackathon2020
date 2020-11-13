@@ -12,8 +12,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   public Islogin: boolean = false;
   loggedId: string ="";
+
 
   loginControl(id,pass){
 
