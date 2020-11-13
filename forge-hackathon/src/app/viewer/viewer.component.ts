@@ -26,7 +26,7 @@ var options = {
     env: 'AutodeskProduction',
     api: 'derivativeV2',  // for models uploaded to EMEA change this option to 'derivativeV2_EU'
     getAccessToken: function(onTokenReady) {
-        var token = 'eyJhbGciOiJIUzI1NiIsImtpZCI6Imp3dF9zeW1tZXRyaWNfa2V5In0.eyJzY29wZSI6WyJkYXRhOnJlYWQiLCJkYXRhOndyaXRlIiwiZGF0YTpjcmVhdGUiLCJidWNrZXQ6cmVhZCIsImJ1Y2tldDpjcmVhdGUiXSwiY2xpZW50X2lkIjoiSTFuemI0MXFUenJrajdRSTJwUzdLUWoxenRQR2J0ZDkiLCJhdWQiOiJodHRwczovL2F1dG9kZXNrLmNvbS9hdWQvand0ZXhwNjAiLCJqdGkiOiJyd0lkYnVGR2IzQ1R6bjRlN2hHb2k4ajByTU13MDI0UWswVVdoSDFHRHEyQWVUbWtNVWRlNzFFbUx6N2h0MXptIiwiZXhwIjoxNjA1MjY1MjE4fQ.WOR6V8i4zn6O-w25iBFbJHUxWNR0CP3ygtk0vL4DPKk';
+        var token = 'eyJhbGciOiJIUzI1NiIsImtpZCI6Imp3dF9zeW1tZXRyaWNfa2V5In0.eyJzY29wZSI6WyJkYXRhOnJlYWQiLCJkYXRhOndyaXRlIiwiZGF0YTpjcmVhdGUiLCJidWNrZXQ6cmVhZCIsImJ1Y2tldDpjcmVhdGUiXSwiY2xpZW50X2lkIjoiSTFuemI0MXFUenJrajdRSTJwUzdLUWoxenRQR2J0ZDkiLCJhdWQiOiJodHRwczovL2F1dG9kZXNrLmNvbS9hdWQvand0ZXhwNjAiLCJqdGkiOiJ3cDZ2RDdVTnFLbnozcjhydVpEMW5tb2xJWm9pa2ZGeVFRS1JzNTBYZUhPRmh2TXJkMnFLTWFhN1V0U2Q2RGc0IiwiZXhwIjoxNjA1MjcwMjQ1fQ.aD-sBJKbCMzdgGWPAe2Sh_N9VDH3RdHc7vKfEu8rRAA';
         var timeInSeconds = 3600; // Use value provided by Forge Authentication (OAuth) API
         onTokenReady(token, timeInSeconds);
     }
@@ -71,6 +71,9 @@ function onDocumentLoadFailure() {
   sidebar: boolean = true;
   sidebarbuttontext: string = "<";
   propertiesbuttontext: string = ">";
+  colorSettings: boolean = false;
+  scaleSettings: boolean = false;
+  sceneSettings: boolean = false;
   properties: boolean = true;
   scaleX: Float64Array;
   scaleY: Float64Array;
@@ -80,6 +83,7 @@ function onDocumentLoadFailure() {
   itemName: string = "";
   itemColor: string = "";
 
+  IsSettingsOpen: boolean = false;
 
   viewerHeight: number;
   viewerWidth: number;
@@ -108,10 +112,35 @@ function onDocumentLoadFailure() {
       }
     }
   }
-  
+  colorSettingsFunction() {
+    this.scaleSettings = false;
+    this.sceneSettings = false;
+    this.colorSettings = !this.colorSettings;
+    this.IsSettingsOpen = this.colorSettings ? true : false;
+    this.viewerHeight = this.IsSettingsOpen ? 70 : 100;
+  }
+  scaleSettingsFunction() {
+    this.colorSettings = false;
+    this.sceneSettings = false;
+    this.scaleSettings = !this.scaleSettings;
+    this.IsSettingsOpen = this.scaleSettings ? true : false;
+    this.viewerHeight = this.IsSettingsOpen ? 70 : 100;
+  }
+  sceneSettingsFunction() {
+    this.colorSettings = false;
+    this.scaleSettings = false;
+    this.sceneSettings = !this.sceneSettings;
+    this.IsSettingsOpen = this.sceneSettings ? true : false;
+    this.viewerHeight = this.IsSettingsOpen ? 70 : 100;
+  }
 
   saveFunction() {
+    this.colorSettings = false;
+    this.scaleSettings = false;
+    this.sceneSettings = false;
     this.properties = false;
+    this.IsSettingsOpen = false;
+    this.viewerHeight = this.IsSettingsOpen ? 70 : 100;
     this.viewerWidth = 80.8;
 
   }
@@ -143,6 +172,14 @@ function onDocumentLoadFailure() {
     }
   }
 
+  galleryItems = [
+    { imgSrc: '../../assets/img/scenes/scene (1).jpg' },
+    { imgSrc: '../../assets/img/scenes/scene (2).jpg' },
+    { imgSrc: '../../assets/img/scenes/scene (3).jpg' },
+    { imgSrc: '../../assets/img/scenes/scene (4).jpg' },
+    { imgSrc: '../../assets/img/scenes/scene (5).jpg' }
+
+  ];
 
   changeSceneFunction(scenePath) {
     this.scenePath = scenePath;
