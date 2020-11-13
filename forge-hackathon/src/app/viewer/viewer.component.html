@@ -1,4 +1,3 @@
-
 <div class="viewercontent">
     <nav id="sidebar" *ngIf="sidebar">
         <div class="sidebar-header">
@@ -28,70 +27,10 @@
 
     <!-- Page Content -->
     <div class="content">
-        <div class="viewer" id="forgeViewer" [style.height.%]="viewerHeight" [style.width.%]="viewerWidth" >
-           
-        </div>
-
-
-      <div id="settings" class="settings" *ngIf="colorSettings">
-            <h3 class="settings" style="text-align: center;">Color Settings</h3>
-
-            <div class="selectColor">
-                <input [(colorPicker)]="itemColor" class="inputColor" [style.background]="itemColor"
-                    [itemColor]="itemColor" value="{{itemColor}}" />
-            </div>
-        </div>
-
-        <div id="settings" class="settings" *ngIf="scaleSettings">
-            <h3 class="settings" style="text-align: center;">Scale Settings</h3>
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm">
-                        <mat-label>Width : </mat-label>
-                        <input type="text" value="{{scaleX}}">
-                    </div>
-                    <div class="col-sm">
-                        <mat-label>Height : </mat-label>
-                        <input type="text" value="{{scaleY}}">
-                    </div>
-                    <div class="col-sm">
-                        <mat-label>Depth : </mat-label>
-                        <input type="text" value="{{scaleZ}}">
-                    </div>
-                </div>
-                <div class="settings-buttons">
-                    <button type="button" (click)="uploadSceneFunction()" style="margin-left: 12px; margin-top: 12px;"
-                        class="btn btn-secondary">Update Scale</button>
-
-                    <button type="button" (click)="resetSceneFunction()" style="margin-left: 12px; margin-top: 12px;"
-                        class="btn btn-secondary">Reset Scale</button>
-                </div>
-            </div>
-            <br><br>
-
+        <div class="viewer" id="forgeViewer" [style.height.%]="viewerHeight" [style.width.%]="viewerWidth">
 
         </div>
 
-        <div id="settings" class="settings" *ngIf="sceneSettings">
-            <h3 class="settings" style="text-align: center;">Scene Settings</h3>
-
-
-            <div class="imageGallery">
-                <div class="imageContent" *ngFor="let item of galleryItems">
-                    <img (click)="changeSceneFunction(item.imgSrc)" [src]="item.imgSrc" alt="image">
-                </div>
-            </div>
-
-            <div class="settings-buttons">
-                <button type="button" (click)="uploadSceneFunction()" style="margin-left: 12px; margin-top: 12px;"
-                    class="btn btn-secondary">Upload Your Scene</button>
-
-                <button type="button" (click)="resetSceneFunction()" style="margin-left: 12px; margin-top: 12px;"
-                    class="btn btn-secondary">Reset Scene</button>
-            </div>
-
-        </div>
     </div>
 
 
@@ -101,19 +40,33 @@
         <h3 style="text-align: center;">Properties</h3>
 
         <div class="properties-buttons">
+
             <div class="text-center">
-                <br><br>
-                <button type="button" (click)="colorSettingsFunction()"
-                    class="prop-btn btn btn-secondary">Color</button>
-                <br><br>
-                <button type="button" (click)="scaleSettingsFunction()"
-                    class="prop-btn btn btn-secondary">Scale</button>
-                <br><br>
-                <button type="button" (click)="sceneSettingsFunction()"
-                    class="prop-btn btn btn-secondary">Scene</button>
+                <div class="row">
+                    <div class="col-sm mt-5">
+                        <mat-label>Color : </mat-label>
+                        <input style="width: 80%; height: 100px;" [(colorPicker)]="itemColor" [style.background]="itemColor" [itemColor]="itemColor"
+                            value="{{itemColor}}" />
+                    </div>
+                    <div class="col-sm mt-5">
+                        <mat-label>Width : </mat-label>
+                        <input  type="text" value="{{scaleX}}">
+                    </div>
+                    <div class="col-sm mt-5">
+                        <mat-label>Height : </mat-label>
+                        <input type="text" value="{{scaleY}}">
+                    </div>
+                    <div class="col-sm mt-5">
+                        <mat-label>Depth : </mat-label>
+                        <input type="text" value="{{scaleZ}}">
+                    </div>
+                </div>
+
             </div>
 
             <div class="text-center">
+
+
                 <button type="button" (click)="saveFunction()" class="prop-btn btn btn-success saveButton">Save
                     All</button>
             </div>
@@ -122,4 +75,3 @@
     </div>
 
 </div>
-
