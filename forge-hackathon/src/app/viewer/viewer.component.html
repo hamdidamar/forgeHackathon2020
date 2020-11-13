@@ -1,3 +1,4 @@
+
 <div class="viewercontent">
     <nav id="sidebar" *ngIf="sidebar">
         <div class="sidebar-header">
@@ -27,15 +28,12 @@
 
     <!-- Page Content -->
     <div class="content">
-        <div class="viewer" [style.height.%]="viewerHeight">
-            <h3 class="viewer" style="text-align: center;">Viewer</h3>
-            <p>{{itemName}}</p>
-            <p>{{itemColor}}</p>
-            <p>{{scenePath}}</p>
-
+        <div class="viewer" id="forgeViewer" [style.height.%]="viewerHeight" [style.width.%]="viewerWidth" >
+           
         </div>
 
-        <div id="settings" class="settings" *ngIf="colorSettings">
+
+      <div id="settings" class="settings" *ngIf="colorSettings">
             <h3 class="settings" style="text-align: center;">Color Settings</h3>
 
             <div class="selectColor">
@@ -124,3 +122,4 @@
     </div>
 
 </div>
+
