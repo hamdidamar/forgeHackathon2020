@@ -26,16 +26,16 @@ var options = {
     env: 'AutodeskProduction',
     api: 'derivativeV2',  // for models uploaded to EMEA change this option to 'derivativeV2_EU'
     getAccessToken: function(onTokenReady) {
-        var token = 'eyJhbGciOiJIUzI1NiIsImtpZCI6Imp3dF9zeW1tZXRyaWNfa2V5In0.eyJzY29wZSI6WyJkYXRhOnJlYWQiLCJkYXRhOndyaXRlIiwiZGF0YTpjcmVhdGUiLCJidWNrZXQ6cmVhZCIsImJ1Y2tldDpjcmVhdGUiXSwiY2xpZW50X2lkIjoiSTFuemI0MXFUenJrajdRSTJwUzdLUWoxenRQR2J0ZDkiLCJhdWQiOiJodHRwczovL2F1dG9kZXNrLmNvbS9hdWQvand0ZXhwNjAiLCJqdGkiOiJ3cDZ2RDdVTnFLbnozcjhydVpEMW5tb2xJWm9pa2ZGeVFRS1JzNTBYZUhPRmh2TXJkMnFLTWFhN1V0U2Q2RGc0IiwiZXhwIjoxNjA1MjcwMjQ1fQ.aD-sBJKbCMzdgGWPAe2Sh_N9VDH3RdHc7vKfEu8rRAA';
+        var token = 'eyJhbGciOiJIUzI1NiIsImtpZCI6Imp3dF9zeW1tZXRyaWNfa2V5In0.eyJzY29wZSI6WyJkYXRhOnJlYWQiLCJkYXRhOndyaXRlIiwiZGF0YTpjcmVhdGUiLCJidWNrZXQ6cmVhZCIsImJ1Y2tldDpjcmVhdGUiXSwiY2xpZW50X2lkIjoiSTFuemI0MXFUenJrajdRSTJwUzdLUWoxenRQR2J0ZDkiLCJhdWQiOiJodHRwczovL2F1dG9kZXNrLmNvbS9hdWQvand0ZXhwNjAiLCJqdGkiOiJ1R2xjMTI2ZWt2Yjc4VEp4ZG1aNWttSkxTRUNCRTFJeU1KQmV2SHcyaWJjemJFTTZNTkI4Q2tTOUtGT1lLN1pWIiwiZXhwIjoxNjA1NDI5MDg4fQ.pSsqHf6LSwxHeChYZ_rjh0sqpdMO9cLNqMKZDvcNsBQ';
         var timeInSeconds = 3600; // Use value provided by Forge Authentication (OAuth) API
         onTokenReady(token, timeInSeconds);
     }
 };
 
-Autodesk.Viewing.Initializer(options, function() {
-
-    var htmlDiv = document.getElementById('forgeViewer');
-    viewer = new Autodesk.Viewing.GuiViewer3D(htmlDiv);
+Autodesk.Viewing.Initializer(options, () => {
+      Autodesk.Viewing.theExtensionManager.registerExtension(
+          'BoundingBoxExtension', BoundingBoxExtension);
+    viewer = new Autodesk.Viewing.GuiViewer3D(document.getElementById('forgeViewer'), { extensions: ['BoundingBoxExtension'] });
     var startedCode = viewer.start();
     if (startedCode > 0) {
         console.error('Failed to create a Viewer: WebGL not supported.');
@@ -53,7 +53,7 @@ Autodesk.Viewing.Initializer(options, function() {
     const s = this.renderer2.createElement('script');
     s.type = 'text/javascript';
     s.text = `
-    var documentId = 'urn:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Y21yZHdmL0Rvb3IuaXB0';
+    var documentId = 'urn:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Y21yZHdmLzE1Mi4wNi4xMS4yMDIxMCUyMEdHV1MlMjAxMDEwJTIwR0VPJTIwR1JPVVAuaWFtLmR3Zg';
 Autodesk.Viewing.Document.load(documentId, onDocumentLoadSuccess, onDocumentLoadFailure);
 
 function onDocumentLoadSuccess(viewerDocument) {
@@ -177,7 +177,8 @@ function onDocumentLoadFailure() {
     { imgSrc: '../../assets/img/scenes/scene (2).jpg' },
     { imgSrc: '../../assets/img/scenes/scene (3).jpg' },
     { imgSrc: '../../assets/img/scenes/scene (4).jpg' },
-    { imgSrc: '../../assets/img/scenes/scene (5).jpg' }
+    { imgSrc: '../../assets/img/scenes/scene (5).jpg' },
+    { imgSrc: '../../assets/img/scenes/scene (6).jpg' }
 
   ];
 

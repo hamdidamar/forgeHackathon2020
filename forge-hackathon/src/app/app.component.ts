@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import { Renderer2, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
@@ -8,7 +8,7 @@ import { DOCUMENT } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor(
     private renderer2: Renderer2,
     @Inject(DOCUMENT) private _document
@@ -21,5 +21,9 @@ export class AppComponent {
     s.src = 'https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.min.js';
     s.text = ``;
     this.renderer2.appendChild(this._document.body, s);
+
   }
+
+
+
 }

@@ -12,7 +12,8 @@
         </mat-list>
 
         <div style="display: flex;">
-            <button type="button" class="btn btn-info"
+            <input [style.display]="'none'" type="file" accept="*" #file>
+            <button (click)="file.click()" type="button" class="btn btn-info"
                 style="margin-left: 10px; margin-top: 10px; flex-basis: 85%;">Upload Item</button>
         </div>
 
