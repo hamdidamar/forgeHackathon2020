@@ -12,8 +12,7 @@
         </mat-list>
 
         <div style="display: flex;">
-            <input [style.display]="'none'" type="file" accept="*" #file>
-            <button (click)="file.click()" type="button" class="btn btn-info"
+            <button type="button" class="btn btn-info"
                 style="margin-left: 10px; margin-top: 10px; flex-basis: 85%;">Upload Item</button>
         </div>
 
@@ -38,39 +37,36 @@
 
     <button (click)="propertiesFunction()" class="slider-buttons">{{propertiesbuttontext}}</button>
     <div id="properties" class="properties" *ngIf="properties">
+        
         <h3 style="text-align: center;">Properties</h3>
+        <div id="loader" class="loader" style="margin-top: 300px; margin-left: 50px;">
 
-        <div class="properties-buttons">
+        </div>
 
-            <div class="text-center">
-                <div class="row">
-                    <div class="col-sm mt-5">
-                        <mat-label>Color : </mat-label>
-                        <input style="width: 80%; height: 100px;" [(colorPicker)]="itemColor" [style.background]="itemColor" [itemColor]="itemColor"
-                            value="{{itemColor}}" />
+        <div id="propertiesItems" style="display: none;" class="propertiesItems">
+
+            <div class="properties-buttons">
+
+                <div class="text-center">
+                    <div class="row">
+                        <div class="col-sm mt-5">
+                            <mat-label>Color </mat-label>
+                            <input style="width: 20%; height: 35px;" [(colorPicker)]="itemColor"
+                                [style.background]="itemColor" [itemColor]="itemColor" value="{{itemColor}}" />
+                        </div>
+                        
                     </div>
-                    <div class="col-sm mt-5">
-                        <mat-label>Width : </mat-label>
-                        <input  type="text" value="{{scaleX}}">
-                    </div>
-                    <div class="col-sm mt-5">
-                        <mat-label>Height : </mat-label>
-                        <input type="text" value="{{scaleY}}">
-                    </div>
-                    <div class="col-sm mt-5">
-                        <mat-label>Depth : </mat-label>
-                        <input type="text" value="{{scaleZ}}">
-                    </div>
+
                 </div>
 
+                <div class="text-center">
+
+
+                    <button style="margin-top: 15px;" type="button" (click)="saveFunction()" class="prop-btn btn btn-success saveButton">Save
+                        All</button>
+                </div>
             </div>
 
-            <div class="text-center">
-
-
-                <button type="button" (click)="saveFunction()" class="prop-btn btn btn-success saveButton">Save
-                    All</button>
-            </div>
         </div>
 
     </div>

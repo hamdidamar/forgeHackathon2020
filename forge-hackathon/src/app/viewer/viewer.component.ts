@@ -14,7 +14,7 @@ export class ViewerComponent implements OnInit, AfterViewInit {
     this.viewerHeight = this.IsSettingsOpen ? 70 : 100;
     this.viewerWidth = this.properties ? 69.5 : 80.8;
 
-    
+
   }
 
   ngOnInit(): void {
@@ -26,7 +26,7 @@ var options = {
     env: 'AutodeskProduction',
     api: 'derivativeV2',  // for models uploaded to EMEA change this option to 'derivativeV2_EU'
     getAccessToken: function(onTokenReady) {
-        var token = 'eyJhbGciOiJIUzI1NiIsImtpZCI6Imp3dF9zeW1tZXRyaWNfa2V5In0.eyJzY29wZSI6WyJkYXRhOnJlYWQiLCJkYXRhOndyaXRlIiwiZGF0YTpjcmVhdGUiLCJidWNrZXQ6cmVhZCIsImJ1Y2tldDpjcmVhdGUiXSwiY2xpZW50X2lkIjoiSTFuemI0MXFUenJrajdRSTJwUzdLUWoxenRQR2J0ZDkiLCJhdWQiOiJodHRwczovL2F1dG9kZXNrLmNvbS9hdWQvand0ZXhwNjAiLCJqdGkiOiJvVjlDZDZISUN1aWpMZ3lybm10NFV2S2RFM0JIWjJjRENkUlNhR2FxY2ZrMWJVZmszcjlFUFRPZU1iNTk0UzVHIiwiZXhwIjoxNjA1NDQzNjc2fQ.gEs3simEHBBCh0e94_zS3ogJUIOsqk3H50zhKx0CXLI';
+        var token = 'eyJhbGciOiJIUzI1NiIsImtpZCI6Imp3dF9zeW1tZXRyaWNfa2V5In0.eyJzY29wZSI6WyJkYXRhOnJlYWQiLCJkYXRhOndyaXRlIiwiZGF0YTpjcmVhdGUiLCJidWNrZXQ6cmVhZCIsImJ1Y2tldDpjcmVhdGUiXSwiY2xpZW50X2lkIjoiSTFuemI0MXFUenJrajdRSTJwUzdLUWoxenRQR2J0ZDkiLCJhdWQiOiJodHRwczovL2F1dG9kZXNrLmNvbS9hdWQvand0ZXhwNjAiLCJqdGkiOiJWMHZ2emVKRU5JY2U1M1g5MkU1Q0Q4UHc0bTU4Z05LMmk2UjBOOXByU3ViVmtDeVNGeTQwSUhMcnRuUGhXWUxuIiwiZXhwIjoxNjA1NDYwMDU3fQ.BAKuBdtkxb53Y0C74Fc4xk6-fFRzpsuftEZmxSO12eA';
         var timeInSeconds = 3600; // Use value provided by Forge Authentication (OAuth) API
         onTokenReady(token, timeInSeconds);
     }
@@ -47,7 +47,10 @@ Autodesk.Viewing.Initializer(options, () => {
 });
 `;
     this.renderer2.appendChild(this._document.body, s);
+
+
   }
+
 
   ngAfterViewInit() {
     const s = this.renderer2.createElement('script');
@@ -66,6 +69,29 @@ function onDocumentLoadFailure() {
 }
 `;
     this.renderer2.appendChild(this._document.body, s);
+
+    const s2 = this.renderer2.createElement('script');
+    s2.type = 'text/javascript';
+    s2.text = `
+    
+    document.getElementById("loader").style.display = "block";
+    document.getElementById("propertiesItems").style.display = "none";
+    
+    `;
+    this.renderer2.appendChild(this._document.body, s2);
+
+
+    const s1 = this.renderer2.createElement('script');
+    s1.type = 'text/javascript';
+    s1.text = ` setTimeout(function(){ 
+      document.getElementById("loader").style.display = "none";
+    document.getElementById("propertiesItems").style.display = "block";
+    }, 3000);
+    
+    `;
+    this.renderer2.appendChild(this._document.body, s1);
+
+
   }
 
   sidebar: boolean = true;
@@ -88,6 +114,7 @@ function onDocumentLoadFailure() {
   viewerHeight: number;
   viewerWidth: number;
 
+  loaderFinish: boolean = false;
 
 
   sidebarFunction() {
@@ -142,6 +169,7 @@ function onDocumentLoadFailure() {
     this.IsSettingsOpen = false;
     this.viewerHeight = this.IsSettingsOpen ? 70 : 100;
     this.viewerWidth = 80.8;
+    this.propertiesbuttontext = "<";
 
   }
   propertiesFunction() {

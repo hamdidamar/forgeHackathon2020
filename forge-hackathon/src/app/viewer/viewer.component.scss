@@ -1,100 +1,96 @@
-.viewercontent{
+.viewercontent {
     display: flex;
     height: 100%;
 }
 #sidebar {
     width: 20%;
-    background-color:#343a40;
+    background-color: #343a40;
     border-radius: 5px;
-    color: rgba(255,255,255,.5);
+    color: rgba(255, 255, 255, 0.5);
     margin: 2px 0 2px 0; //top,right,bottom,left
     height: 100%;
 }
 
-
-.content{
+.content {
     width: 100%;
 }
 
 .properties {
     width: 20%;
-    background-color:#343a40;
+    background-color: #343a40;
     border-radius: 5px;
-    color: rgba(255,255,255,.5);
+    color: rgba(255, 255, 255, 0.5);
     height: 100%;
     margin: 2px 0 2px 0; //top,right,bottom,left
 }
 
 .viewer {
-    position:absolute;
+    position: absolute;
     width: 100%;
     background-color: #343a40;
     border-radius: 5px;
-    color: rgba(255,255,255,.5);
-    
+    color: rgba(255, 255, 255, 0.5);
+
     margin: 2px 2px 0 0px; //top,right,bottom,left
 }
 
-
 .settings {
     width: 100%;
-    background-color:#343a40;
+    background-color: #343a40;
     border-radius: 5px;
-    color: rgba(255,255,255,.5);
+    color: rgba(255, 255, 255, 0.5);
     height: 30%;
     margin: 2px 2px 4px 0px; //top,right,bottom,left
 }
 
-.buttons{
+.buttons {
     margin: 2px 0 2px 0;
     border-radius: 5px;
-
 }
 
-.saveButton{
+.saveButton {
     bottom: 0;
     right: 0;
 }
 
-.imageGallery{
+.imageGallery {
     display: flex;
-
 }
 
-.imageContent > img{
+.imageContent > img {
     width: 80%;
 }
 
-.imageContent{
+.imageContent {
     flex-basis: 33%;
     display: flex;
     justify-content: center;
 }
 
-.listSidebar{
+.listSidebar {
     display: flex;
     flex-direction: column;
     margin-left: 10px;
 }
 
-.listItemSidebar{
+.listItemSidebar {
     flex-basis: 90%;
     margin-top: 5px;
 }
 
-.properties-buttons{
+.properties-buttons {
     height: 90%;
     display: flex;
-    align-content:space-between ;
-    justify-content:space-between ;
+    align-content: space-between;
+    justify-content: space-between;
     flex-direction: column;
 }
 
-.prop-btn{
+.prop-btn {
     width: 70%;
 }
 
-.slider-buttons{
+.slider-buttons {
     height: 100%;
     border: 1px solid transparent;
     color: #fff;
@@ -102,20 +98,19 @@
     border-color: #6c757d;
     border-radius: 0.25rem;
     margin: 2px 0 2px 0;
-
 }
 
-.settings-buttons{
+.settings-buttons {
     width: 100%;
     display: flex;
-    align-content:space-between ;
+    align-content: space-between;
 }
 
-.settings-buttons > button{
+.settings-buttons > button {
     width: 48%;
 }
 
-.selectColor{
+.selectColor {
     display: flex;
     width: 100%;
     height: 60%;
@@ -123,15 +118,22 @@
     align-items: center;
 }
 
-.inputColor{
+.inputColor {
     width: 40%;
     height: 100%;
 }
 
-.boundingBoxButton {
-  background-image: url("../../assets/js/btn.png");
-  background-size: 24px;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
+.loader {
+    
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 3s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
