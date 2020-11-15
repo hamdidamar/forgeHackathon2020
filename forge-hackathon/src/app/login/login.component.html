@@ -1,11 +1,14 @@
 <div class="login-page">
 
-<!-- Default form login -->
-<form class="text-center form-border">
+    <!-- Default form login -->
+    <form class="text-center form-border">
 
-    <p class="h4 mb-4">Sign in</p>
+        <div style="display: flex; flex-direction: row; height: 35%; width: 100%; justify-content: space-evenly;">
+            <div *ngFor="let item of LogoGallery">
+                <img class="logo" src="item.imgSrc" [src]="item.imgSrc" alt="image">
+            </div>
+        </div>
 
-    
         <!-- Email -->
         <input type="text" id="clientID" class="form-control mb-3" placeholder="Client ID">
 
@@ -14,13 +17,13 @@
 
 
         <!-- Sign in button -->
-        <button [routerLink]="'/projects'" block="true"  class="btn btn-info" type="submit">Sign in</button>
-        
-    
+        <button [routerLink]="'/projects'" block="true" class="btn btn-info" type="submit">Sign in</button>
 
 
-</form>
-<!-- Default form login -->
+
+
+    </form>
+    <!-- Default form login -->
 
 </div>
 

@@ -30,4 +30,10 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  LogoGallery = [
+    {imgSrc: '../../assets/img/logos/autodesk.png'},
+    {imgSrc: '../../assets/img/logos/autodeskforge.png'},
+    {imgSrc: '../../assets/img/logos/codeo.png'}
+    ];
+
 }

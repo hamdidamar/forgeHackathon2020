@@ -26,7 +26,7 @@ var options = {
     env: 'AutodeskProduction',
     api: 'derivativeV2',  // for models uploaded to EMEA change this option to 'derivativeV2_EU'
     getAccessToken: function(onTokenReady) {
-        var token = 'eyJhbGciOiJIUzI1NiIsImtpZCI6Imp3dF9zeW1tZXRyaWNfa2V5In0.eyJzY29wZSI6WyJkYXRhOnJlYWQiLCJkYXRhOndyaXRlIiwiZGF0YTpjcmVhdGUiLCJidWNrZXQ6cmVhZCIsImJ1Y2tldDpjcmVhdGUiXSwiY2xpZW50X2lkIjoiSTFuemI0MXFUenJrajdRSTJwUzdLUWoxenRQR2J0ZDkiLCJhdWQiOiJodHRwczovL2F1dG9kZXNrLmNvbS9hdWQvand0ZXhwNjAiLCJqdGkiOiJ1R2xjMTI2ZWt2Yjc4VEp4ZG1aNWttSkxTRUNCRTFJeU1KQmV2SHcyaWJjemJFTTZNTkI4Q2tTOUtGT1lLN1pWIiwiZXhwIjoxNjA1NDI5MDg4fQ.pSsqHf6LSwxHeChYZ_rjh0sqpdMO9cLNqMKZDvcNsBQ';
+        var token = 'eyJhbGciOiJIUzI1NiIsImtpZCI6Imp3dF9zeW1tZXRyaWNfa2V5In0.eyJzY29wZSI6WyJkYXRhOnJlYWQiLCJkYXRhOndyaXRlIiwiZGF0YTpjcmVhdGUiLCJidWNrZXQ6cmVhZCIsImJ1Y2tldDpjcmVhdGUiXSwiY2xpZW50X2lkIjoiSTFuemI0MXFUenJrajdRSTJwUzdLUWoxenRQR2J0ZDkiLCJhdWQiOiJodHRwczovL2F1dG9kZXNrLmNvbS9hdWQvand0ZXhwNjAiLCJqdGkiOiJvVjlDZDZISUN1aWpMZ3lybm10NFV2S2RFM0JIWjJjRENkUlNhR2FxY2ZrMWJVZmszcjlFUFRPZU1iNTk0UzVHIiwiZXhwIjoxNjA1NDQzNjc2fQ.gEs3simEHBBCh0e94_zS3ogJUIOsqk3H50zhKx0CXLI';
         var timeInSeconds = 3600; // Use value provided by Forge Authentication (OAuth) API
         onTokenReady(token, timeInSeconds);
     }
